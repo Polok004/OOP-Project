@@ -12,6 +12,7 @@ protected:
     string category;
 
 public:
+    Contact(){}
     friend istream& operator>>(istream& is, Contact& contact) {
         cout << "Enter your first name: ";
         is >> contact.firstName;
@@ -41,6 +42,7 @@ public:
 
 class Phonebook : public Contact {
 public:
+    Phonebook(){}
     void createContact() {
         char ch;
         ofstream f1;
@@ -49,7 +51,7 @@ public:
         cin >> *this;
         f1.write(reinterpret_cast<char*>(this), sizeof(*this));
 
-        cout << "Contact has been successfully created..." << endl;
+        cout << "Contact has been created successfully..." << endl;
         f1.close();
     }
 
@@ -302,7 +304,7 @@ int main() {
                 break;
 
             case 0:
-                cout << "\n\n\n\t\t\tThank you for using CMS." << endl << endl;
+                cout << "\n\n\n\t\t\tThank you for using Phonebook." << endl << endl;
                 exit(0);
                 break;
 
